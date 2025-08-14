@@ -1,15 +1,22 @@
 import { useState, useEffect } from "react";
 
 function App() {
-  const [isDark, setIsDark] = useState(false);
+  const [isDark, setIsDark] = useState(() => {
+    return localStorage.getItem("theme") === "dark";
+  });
 
-  // Optional: listen to Tailwind dark mode changes
   useEffect(() => {
-    const darkClass = document.documentElement.classList.contains("dark");
-    setIsDark(darkClass);
-  }, []);
+    const root = document.documentElement;
+    if (isDark) {
+      root.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      root.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    }
+  }, [isDark]);
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen font-display">
       <div className="relative w-full xs:h-[300px] h-[200px] overflow-hidden">
         {/* Mobile Light */}
         <div
@@ -34,8 +41,24 @@ function App() {
         ></div>
       </div>
 
-      <main className="relative -mt-[150px] px-4">
-        <h1>Hello world</h1>
+      <main className="relative -mt-[156px] px-6">
+        <header className="flex justify-between items-center">
+          <h1 className="font-semibold text-white text-[20px] tracking-[16px]">
+            TODO
+          </h1>
+          <button onClick={() => setIsDark(!isDark)}>
+            <img
+              src={
+                isDark
+                  ? "public/images/icon-sun.svg"
+                  : "public/images/icon-moon.svg"
+              }
+              alt="Toggle theme"
+              width={20}
+              height={20}
+            />
+          </button>
+        </header>
       </main>
     </div>
   );
