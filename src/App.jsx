@@ -41,9 +41,9 @@ function App() {
         ></div>
       </div>
 
-      <main className="relative -mt-[156px] px-6">
+      <main className="relative -mt-[158px] xs:-mt-[252px] max-w-[541px] mx-auto  px-6">
         <header className="flex justify-between items-center">
-          <h1 className="font-semibold text-white text-[20px] tracking-[16px]">
+          <h1 className="font-semibold text-white text-[24px] tracking-[15px]">
             TODO
           </h1>
           <button onClick={() => setIsDark(!isDark)}>
