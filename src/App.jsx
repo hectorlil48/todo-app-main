@@ -48,7 +48,7 @@ function App() {
           </h1>
           <button onClick={() => setIsDark(!isDark)}>
             <img
-              src={isDark ? "/images/icon-sun.svg" : "/images/icon-moon.svg"}
+              src={isDark ? "./images/icon-sun.svg" : "./images/icon-moon.svg"}
               alt="Toggle theme"
               width={20}
               height={20}
