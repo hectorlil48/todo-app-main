@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import MainBackground from "./components/MainBackground";
 
 function App() {
   const [isDark, setIsDark] = useState(() => {
@@ -16,34 +17,12 @@ function App() {
     }
   }, [isDark]);
   return (
-    <div className="min-h-screen font-display">
-      <div className="relative w-full xs:h-[300px] h-[200px] overflow-hidden">
-        {/* Mobile Light */}
-        <div
-          className={`
-          absolute inset-0 bg-no-repeat bg-center bg-cover
-          bg-[url('/images/bg-mobile-light.jpg')]
-          xs:bg-[url('/images/bg-desktop-light.jpg')]
-          transition-all duration-500 ease-in-out
-          ${isDark ? "opacity-0" : "opacity-100"}
-        `}
-        ></div>
-
-        {/* Mobile Dark */}
-        <div
-          className={`
-          absolute inset-0 bg-no-repeat bg-center bg-cover
-          bg-[url('/images/bg-mobile-dark.jpg')]
-          xs:bg-[url('/images/bg-desktop-dark.jpg')]
-          transition-all duration-500 ease-in-out
-          ${isDark ? "opacity-100" : "opacity-0"}
-        `}
-        ></div>
-      </div>
+    <div className="min-h-screen max-w-[1440px] mx-auto font-display">
+      <MainBackground isDark={isDark} />
 
       <main className="relative -mt-[158px] xs:-mt-[252px] md:-mt-[240px] max-w-[560px] mx-auto  px-6">
         <header className="flex justify-between items-center">
-          <h1 className="font-semibold text-white text-[24px] sm:text-[32px] md:text-[40px] tracking-[15px]  transition-all duration-500 ease-in-out">
+          <h1 className="font-semibold sm:font-bold text-white text-[24px] sm:text-[32px] md:text-[40px] tracking-[15px]  transition-all duration-500 ease-in-out">
             TODO
           </h1>
           <button onClick={() => setIsDark(!isDark)}>
