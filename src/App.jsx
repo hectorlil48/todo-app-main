@@ -41,17 +41,16 @@ function App() {
         ></div>
       </div>
 
-      <main className="relative -mt-[158px] xs:-mt-[252px] max-w-[541px] mx-auto  px-6">
+      <main className="relative -mt-[158px] xs:-mt-[252px] md:-mt-[240px] max-w-[560px] mx-auto  px-6">
         <header className="flex justify-between items-center">
-          <h1 className="font-semibold text-white text-[24px] tracking-[15px]">
+          <h1 className="font-semibold text-white text-[24px] sm:text-[32px] md:text-[40px] tracking-[15px]  transition-all duration-500 ease-in-out">
             TODO
           </h1>
           <button onClick={() => setIsDark(!isDark)}>
             <img
               src={isDark ? "./images/icon-sun.svg" : "./images/icon-moon.svg"}
               alt="Toggle theme"
-              width={20}
-              height={20}
+              className="w-[20px] sm:w-[25px] h-[20px] sm:h-[26px] transition-all duration-500 ease-in-out"
             />
           </button>
         </header>
