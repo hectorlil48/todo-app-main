@@ -6,6 +6,7 @@
   /* Primary */
   --color-blue-500: hsl(220, 98%, 61%);
   --color-background: #ffffff;
+  --color-white: #fff;
 
   /* Light Theme */
   --color-gray-50: hsl(0, 0%, 98%);
