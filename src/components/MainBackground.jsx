@@ -1,3 +1,10 @@
+/**
+ * MainBackground component displays a responsive background image
+ * that switches between light and dark themes based on the isDark prop.
+ *
+ * @param {Object} props
+ * @param {boolean} props.isDark - Determines if the dark background is shown.
+ */
 function MainBackground({ isDark }) {
   const baseClasses =
     "absolute inset-0 bg-no-repeat bg-cover bg-center transition-opacity duration-500 ease-in-out";

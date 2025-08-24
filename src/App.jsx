@@ -2,17 +2,20 @@ import { useState, useEffect } from "react";
 import MainBackground from "./components/MainBackground";
 import Header from "./components/Header";
 
+const getInitialTheme = () => {
+  return localStorage.getItem("theme") === "dark";
+};
+
 function App() {
-  const [isDark, setIsDark] = useState(() => {
-    return localStorage.getItem("theme") === "dark";
-  });
+  const [isDark, setIsDark] = useState(getInitialTheme);
 
   useEffect(() => {
     const root = document.documentElement;
-    if (isDark) {
+    const currentTheme = localStorage.getItem("theme");
+    if (isDark && currentTheme !== "dark") {
       root.classList.add("dark");
       localStorage.setItem("theme", "dark");
-    } else {
+    } else if (!isDark && currentTheme !== "light") {
       root.classList.remove("dark");
       localStorage.setItem("theme", "light");
     }
